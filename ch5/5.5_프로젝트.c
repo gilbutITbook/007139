@@ -10,7 +10,7 @@ void fail();
 int main(void)
 {
 	srand(time(NULL)); // 난수 초기화
-	int count = 0; // 맞힌 문제 개수
+	int count = 0; // 변수 선언 및 초기화(맞힌 문제 개수)
 
 	for (int i = 1; i <= 5; i++) // 문제 5개
 	{
@@ -23,18 +23,18 @@ int main(void)
 		int answer = -1;
 		scanf_s("%d", &answer); // 답 입력
 
-		if (answer == -1) 
+		if (answer == -1) // 입력값이 -1일 때
 		{
 			printf("\n프로그램을 종료합니다.\n");
     		// break;
 			exit(0);
 		}
-		else if (answer == num1 * num2)
+		else if (answer == num1 * num2) // 정답을 맞혔을 때
 		{
 			success();
 			count++; // 맞힌 문제 개수 증가
 		}
-		else
+		else // 정답을 못 맞혔을 때
 		{
 			fail();
 		}

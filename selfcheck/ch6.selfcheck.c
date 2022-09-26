@@ -14,5 +14,6 @@ int main(void)
 	average = sum / 5.0f; // 평균 계산	
 
 	printf("총점은 %d점, 평균은 %.1f점입니다.\n", sum, average);
+
 	return 0;
 }

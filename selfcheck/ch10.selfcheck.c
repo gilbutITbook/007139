@@ -4,9 +4,9 @@
 
 int main(void)
 {
-	char word[256];  // 단어
-	char definition[256]; // 뜻
-	char input[256]; // 사용자 입력
+	char word[256] = ""; // 단어
+	char definition[256] = ""; // 뜻
+	char input[256] = ""; // 사용자 입력
 
 	FILE* file = fopen("C:\\Users\\사용자계정\\word.txt", "rb");
 	if (file == NULL)
@@ -19,7 +19,7 @@ int main(void)
 	{
 		(void)fscanf(file, "%s %s", word, definition);
 		printf("'%s'(이)라는 뜻을 가진 영어 단어는? ", definition);
-		scanf_s("%s", input, (unsigned)sizeof(input));
+		scanf_s("%s", input, (unsigned int)sizeof(input));
 		if (strcmp(input, word) == 0)
 		{
 			printf("%s, 정답입니다.\n\n", word);

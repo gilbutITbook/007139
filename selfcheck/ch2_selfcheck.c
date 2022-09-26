@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
     // 이름
     char name[256];
     printf("이름을 입력하세요 : ");
-    scanf_s("%s", name, sizeof(name));
+    scanf_s("%s", name, (unsigned int)sizeof(name));
 
     // 아이디
     char id[256];
     printf("사용할 아이디를 입력하세요 : ");
-    scanf_s("%s", id, sizeof(id));
+    scanf_s("%s", id, (unsigned int)sizeof(id));
 
     // 나이
     int age;
@@ -19,7 +19,7 @@ int main() {
     // 생일
     char birth[256];
     printf("생일을 입력하세요(월일, 예: 0802) : ");
-    scanf_s("%s", birth, sizeof(birth));
+    scanf_s("%s", birth, (unsigned int)sizeof(birth));
 
     // 신발 크기
     int size;
@@ -27,7 +27,7 @@ int main() {
     scanf_s("%d", &size);
 
     // 회원 정보 출력
-    printf("\n\n--- 회원 정보 ---\n\n");
+    printf("\n\n--- 회원 정보 ---\n");
     printf("이름      : %s\n", name);
     printf("아이디    : %s\n", id);
     printf("나이      : %d\n", age);

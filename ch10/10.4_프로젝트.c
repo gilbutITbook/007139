@@ -63,11 +63,11 @@ int main(void)
 				break; // while 문 탈출, 일기 쓰기 종료
 			}
 			fputs(contents, file);
-			fputs("\n", file); // 줄바꿈 문자를 파일에 임의로 추가
+			fputs("\n", file); // 줄바꿈 문자를 파일에 추가
 		}
 		fclose(file); // 파일 닫기
 	}
-	else // 비밀번호 틀렸을 때
+	else // 비밀번호가 틀렸을 때
 	{
 		printf("=== 비밀번호가 틀렸어요. ===\n\n");
 	}

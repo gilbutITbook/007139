@@ -3,9 +3,10 @@
 int main(void)
 {
 	int a = 10;
-	int b = 11;
-	int c = 13; // 12 에서 변경
-	int d = 13;
+	int b = 11; // 10
+	int c = 12;
+	int d = 13; // 12
+
 	if (a == b || c == d)
 	{
 		printf("a와 b가 같고 c와 d도 같습니다.\n");

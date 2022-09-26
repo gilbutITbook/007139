@@ -20,10 +20,9 @@ int main(void)
 	long totalElapsedTime = 0; // 총 경과 시간
 	long prevElapsedTime = 0; // 직전에 물을 준 시간(물을 준 시간 간격)
 
-
 	initData(); // 게임 초기화 함수 호출
 
-	startTime = clock(); // clock() 함수로 현재 시간을 시작 시간에 저장
+	startTime = clock(); // 프로그램 실행 이후 현재까지 흐른 시간 저장
 	cursor = arrayFish; // 포인트 변수에 어항 배열의 시작 주소 넣기
 	
 	// 어항에 물 주기
@@ -32,7 +31,7 @@ int main(void)
 		printfFishes(); // 어항 물 높이 출력 함수 호출
 
 		printf("몇 번 어항에 물을 줄까요?(1~6) ");  // 입력 안내 문구
-		scanf_s("%d", &num); // 어항 번호 입력받기
+		scanf_s("%d", &num); // 어항 번호 입력
 		// 입력값 확인
 		if (num < 1 || num > 6)
 		{
@@ -55,17 +54,18 @@ int main(void)
 		{
 			printf("%d번 어항의 물고기는 이미 죽었으므로 물을 주지 않습니다.\n", num);
 		}
-		// 조건 2. 어항의 물 높이가 0 초과면 100을 넘지 않는지 확인하고 물을 줌
+		// 조건 2. 어항의 물 높이가 0 초과하면 100을 넘지 않는지 확인하고 물을 줌
 		else if (cursor[num - 1] + 1 <= 100) 
 		{
 			printf("%d번 어항에 물을 줍니다\n\n", num);
-			cursor[num - 1] += 1; // 물을 주면 물 높이 + 1(cursor[num - 1] = cursor[num - 1] + 1) 
+			// 물을 주면 물 높이 + 1(cursor[num - 1] = cursor[num - 1] + 1) 
+			cursor[num - 1] += 1; 
 		}
 
 		// 레벨업 확인(레벨업은 20초마다 한 번씩 수행)
 		if (totalElapsedTime / 20 > level - 1)
 		{
-			level++; // 레벨업, level : 1 -> level : 2 -> level : 3 ...
+			level++; // 레벨업
 			printf("*** 축하합니다. %d레벨에서 %d레벨로 올랐습니다. ***\n\n", level - 1, level);
 			if (level == 5) // 최고 레벨 확인 후 게임 종료
 			{
@@ -132,7 +132,7 @@ int checkFishAlive()
 	for (int i = 0; i < 6; i++)
 	{
 		if (arrayFish[i] > 0)
-			return 1; // 참 True
+			return 1; // 참
 	}
 	return 0;
 }

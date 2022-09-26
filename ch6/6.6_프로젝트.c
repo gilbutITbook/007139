@@ -6,7 +6,7 @@ int main(void)
 {
     srand(time(NULL)); // 경고를 없애려면 srand((unsigned int)time(NULL)); 
     int treatment = rand() % 4; // 진짜 발모제 선택(0~3)
-    printf("\n\n === 아빠는 대머리 게임 === \n\n");
+    printf("\n\n === 자라나라 머리카락 게임 === \n\n");
 
     int cntShowBottle = 0; // 이번 회차에 조합할 약병 개수
     int prevCntShowBottle = 0; // 앞 회차에서 조합한 약병 개수
@@ -66,13 +66,14 @@ int main(void)
     printf("\n\n발모제는 몇 번일까요? ");
     int answer; 
     scanf_s("%d", &answer);
-    if (answer == treatment + 1) 
+    if (answer == treatment + 1) // 정답일 때
     {
         printf("\n>> 정답입니다!\n");
     }
-    else 
+    else // 틀렸을 때
     {
         printf("\n>> 땡 ! 틀렸어요. 정답은 %d번입니다.\n", treatment + 1);
     }
+
     return 0;
 }

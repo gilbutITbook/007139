@@ -9,7 +9,7 @@ int main(void)
 	printf("%d\n", age); */
 
 	printf("1\n");
-	printf("2\n"); // 한 줄 주석 처리는 //
+	// printf("2\n"); // 한 줄 주석 처리는 //
 	printf("3\n");
 
 	return 0;

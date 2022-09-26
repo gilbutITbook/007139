@@ -6,7 +6,7 @@ typedef struct { // 고양이 구조체 정의
 	char * name; // 이름
 	int age; // 나이
 	char * character; // 특징
-	int level; // 키우기 난이도(1~5, 5가 어려움)
+	int level; // 레벨(1~5, 5가 가장 키우기 어려움)
 } CAT;
 
 CAT cats[5]; // 큰 상자에 있는 전체 고양이 목록
@@ -24,7 +24,7 @@ int main(void)
 	initCats(); // 고양이 정보 초기화 함수 호출
 	while (1)
 	{
-		printf("두근두근~! 어느 고양이의 집사가 될까요?\nEnter를 눌러 확인하세요!");
+		printf("두근두근! 어느 고양이의 집사가 될까요?\nEnter를 눌러 확인하세요!");
 		getchar(); // Enter 입력받기
 		int selected = rand() % 5; // 고양이 뽑기, 0~4 숫자 반환
 		printCat(selected); // 뽑은 고양이 정보 출력 함수 호출
@@ -66,6 +66,7 @@ void initCats() // 고양이 정보 초기화 함수
 	cats[4].character = "늘 배고픔";
 	cats[4].level = 5;
 }
+
 
 void printCat(int selected) // 뽑은 고양이 정보 출력 함수 
 {

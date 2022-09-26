@@ -6,7 +6,6 @@ void p(int num);
 
 int main(void)
 {   
-    
     int ret;
     ret = function_with_return(); // 반환값이 있는 함수 호출
     // int ret = function_with_return();       

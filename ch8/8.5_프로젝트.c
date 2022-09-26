@@ -29,8 +29,8 @@ int main(void) {
         int select2 = 0; // 사용자가 선택한 두 번째 번호 저장 
         printAnimals(); // 카드 지도 출력 함수 호출
         printQuestion(); // 문제 출력 함수 호출
-        printf("\n뒤집을 카드 2장을 고르세요(예: 12 4) -> "); 
-        scanf_s("%d %d", &select1, &select2); // 입력받기
+        printf("\n뒤집을 카드 2장을 고르세요.(예: 12 4) -> "); 
+        scanf_s("%d %d", &select1, &select2); // 카드 번호 입력받기
         if (select1 == select2) { // 같은 카드 선택 시 무효 처리
             continue; // 반복문 시작 지점으로 돌아가기
         }
@@ -49,7 +49,7 @@ int main(void) {
             checkAnimal[secondSelect_x][secondSelect_y] = 1;
         }
         else { // 두 카드가 다른 동물이거나 앞면인 경우
-            printf("\n\n땡! 서로 다른 동물이거나 이미 뒤집힌 카드입니다.\n");
+            printf("\n\n땡! 서로 다른 동물 카드거나 이미 뒤집힌 카드입니다.\n");
             printf("%d : %s\n", select1, strAnimal[arrayAnimal[firstSelect_x][firstSelect_y]]);
             printf("%d : %s\n", select2, strAnimal[arrayAnimal[secondSelect_x][secondSelect_y]]);
             printf("\n");
@@ -93,10 +93,23 @@ void shuffleAnimal() {
         for (int j = 0; j < 2; j++) { 
             int pos = getEmptyPosition(); // 카드 지도에서 빈 공간 찾기 
             int x = conv_pos_x(pos); // 카드 번호를 x 좌표로 변환
-            int y = conv_pos_y(pos); // 카드 번호를 y 좌표로 변환출
+            int y = conv_pos_y(pos); // 카드 번호를 y 좌표로 변환
             arrayAnimal[x][y] = i; // 카드 지도 배열에 동물 번호 저장
         }
     }
+}
+
+// 카드 지도에서 빈 공간 찾기 함수
+int getEmptyPosition() {
+    while (1) {
+        int randPos = rand() % 20; // 무작위로 뽑은 카드 번호 반환(0~19)
+        int x = conv_pos_x(randPos); // 반환한 카드 번호를 x 좌표로 변환
+        int y = conv_pos_y(randPos); // 반환한 카드 번호를 y 좌표로 변환
+        if (arrayAnimal[x][y] == -1) { // 해당 위치가 비었는지 확인
+            return randPos; // 비었으면 카드 번호 반환
+        }
+    }
+    return 0; // 빈 공간이 하나도 없으면 0 반환
 }
 
 // x 좌표 변환 함수 
@@ -109,18 +122,6 @@ int conv_pos_y(int y) {
     return y % 5; // y 좌표, 카드 번호를 5로 나눈 나머지 
 }
 
-// 카드 지도에서 빈 공간 찾기 함수
-int getEmptyPosition() { 
-    while (1) {
-        int randPos = rand() % 20; // 무작위로 뽑은 카드 번호 반환(0~19)
-        int x = conv_pos_x(randPos); // 반환한 카드 번호를 x 좌표로 변환
-        int y = conv_pos_y(randPos); // 반환한 카드 번호를 y 좌표로 변환
-        if (arrayAnimal[x][y] == -1) { // 해당 위치가 비었는지 확인
-            return randPos; // 비었으면 카드 번호 반환
-        }
-    }
-    return 0; // 빈 공간이 하나도 없으면 0 반환
-}
 
 // 동물 위치 출력 함수 
 void printAnimals() { 
@@ -137,7 +138,7 @@ void printAnimals() {
 // 카드 지도 출력 함수 
 void printQuestion() { 
     printf("\n(문제)\n\n"); 
-    int seq = 0; // 변수 선언 
+    int seq = 0; // 변수 선언 및 초기화
     for (int i = 0; i < 4; i++) { // 카드 지도에 접근
         for (int j = 0; j < 5; j++) {
             if (checkAnimal[i][j] != 0) { // 카드가 앞면이면 
@@ -157,7 +158,7 @@ int foundAllAnimals() {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 5; j++) {
             if (checkAnimal[i][j] == 0) {
-                return 0;
+                return 0; // 뒤집지 않은 카드가 있음
             }
         }
     }

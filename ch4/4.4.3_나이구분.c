@@ -24,7 +24,7 @@ int main(void)
 			printf("고등학생입니다.\n"); 
 			break;
 		default: 
-			printf("학생이 아닙니다.\n");
+			printf("청소년이 아닙니다.\n");
 	}
 
 	return 0;

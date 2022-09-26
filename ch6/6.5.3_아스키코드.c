@@ -16,10 +16,10 @@ int main(void)
  	printf("%d\n", '1');
 
 	// 아스키코드 값 0~127에 해당하는 문자 확인
-	/*for (int i = 0; i < 128; i++)
+	for (int i = 0; i < 128; i++)
 	{
 		printf("아스키코드 값 %d : %c\n", i, i);
-	}*/
+	}
 
 	return 0;
 }
